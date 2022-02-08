@@ -1,0 +1,259 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body {
+    background-image: linear-gradient(cornflowerblue, rgb(253, 150, 66));
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Anton', sans-serif;
+
+}
+.darkmode{
+    background-image: linear-gradient(rgb(35, 59, 102), rgb(100, 0, 100));
+}
+.darkmode .header{
+    background-color:#1a1a1b;
+}
+.darkmode .dark svg{
+    color:purple;
+}
+.darkmode .light svg{
+    color:white;
+}
+.darkmode .input button{
+    background-color:rgb(18, 64, 149);
+}
+.darkmode .input button:hover{
+    border:rgb(18, 64, 149) 3px solid;
+    color:rgb(18, 64, 149);
+}
+.darkmode .filterarrow{
+    background-color: rgb(18, 64, 149);
+}
+.darkmode .todo-filter{
+    color:rgb(18, 64, 149)
+}
+.darkmode .todo-filter:hover{
+    background-color:rgb(18, 64, 149)
+}
+
+
+.header{
+    background-color: white;
+    width:100%;
+    height:2.7vw;
+    margin-bottom:5vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.light svg{
+    margin-left:1vw;
+    font-size:2.5vw;
+    color:rgb(253, 150, 66);
+}
+.dark svg{
+    margin-left:1vw;
+    font-size:1.8vw;
+    color:grey;
+}
+.dark:hover svg{
+    color:purple;
+}
+.light:hover svg{
+    color:rgb(253, 150, 66);
+}
+
+
+.main{
+    height:auto;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    gap:2vw;
+}
+.title{
+    font-family: 'Lobster', cursive;
+    font-size:3vw;
+}
+.input{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap:0vw;
+}
+
+.input input{
+    border:none;
+    outline: none;
+    width:20vw;
+    height:3vw;
+    padding-left:1vw;
+    font-size:1.5vw;
+    font-family: 'Anton', sans-serif;
+}
+.input button{
+    width:3vw;
+    background-color:rgb(78, 133, 235);
+    color:white;
+    cursor:pointer;
+    font-size:2vw;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: none;
+    height:3vw;
+    outline: none;
+    border:none;
+}
+.input button:hover{
+    color:rgb(78, 133, 235);
+    background-color:white;
+    border:3px solid rgb(78, 133, 235);
+    transition: ease-in-out 0.1s;
+}
+.input select{
+    outline: none;
+    border:none;
+    background-color:white;
+    height:3vw;
+    width:8vw;
+    margin-left:1vw;
+    color:rgb(78, 133, 235);
+    
+}
+
+.todo-filter-div{
+    position: relative;
+}
+.todo-filter{
+    transition: ease-in-out 0.1s;
+}
+.todo-filter:hover{
+    background-color:rgb(78, 133, 235);
+    color:white;
+    transition: ease-in-out 0.1s;
+}
+
+.filterarrow{
+    width:3vw;
+    height:3vw;
+    background-color:rgb(78, 133, 235);
+    display:inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right:0.01vw;
+    pointer-events: none;
+    
+}
+
+
+
+.todo-container{
+    width:33vw;
+    height:25vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.todos{
+    width:100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap:0.7vw;
+    flex-direction: column;
+}
+
+.todo{
+    display:flex;
+    flex-direction: row;
+    font-size:1.5vw;
+    opacity:100%;
+}
+.todo-container li div{
+    color:black;
+    background-color:white;
+    width:27vw;
+    height:3vw;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.todo-container li button{
+    outline:none;
+    border:none;
+    width:3vw;
+    height:3vw;
+    color:white;
+    font-family: 'Anton', sans-serif;
+    font-size:1.5vw;
+}
+.complete-todo{
+    background-color:#017c3d;
+    cursor: pointer;
+    border:none;
+    transition: ease-in-out 0.2s;
+}
+.complete-todo:hover{
+    color:#017c3d;
+    background-color: white;
+    border:3px solid #017c3d;
+    transition: ease-in-out 0.1s;
+}
+.delete-todo{
+    background-color:#8b1b2a;
+    transition: ease-in-out 0.1s;
+    cursor: pointer;
+    border:none;
+}
+.delete-todo:hover{
+    color:#8b1b2a;
+    transition: ease-in-out 0.1s;
+    background-color:white;
+    border:3px solid #8b1b2a;
+}
+svg{
+    pointer-events: none;
+}
+
+.delete{
+    animation: delete 0.4s both;
+}
+@keyframes delete {
+    0%{opacity:50%;}
+    100%{transform: translateX(100px);
+    opacity: 0%;}
+}
+.complete{
+    opacity:50%;
+}
+
+.hide{
+    opacity: 0%;
+    position: absolute;
+}
+
+
+.complete .todo-div,
+.complete .delete-todo,
+.complete .delete-todo:hover,
+.complete .complete-todo:hover{
+    background-color: #017c3d;
+    color:white;
+    transition: 0.2s ease-in-out;
+}
+.complete .complete-todo{
+    pointer-events: none;
+}
+
+.todo{
+    transition: 0.1s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
